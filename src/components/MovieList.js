@@ -5,7 +5,7 @@ const MovieList = ({movies}) => {
   return(
     <div className='row'>
         {movies.map((movie) => {
-          if(movie['Poster'] == 'N/A' ){
+          if(movie['Poster'] === 'N/A' ){
             movie['Poster'] = 'https://cdn46.picsart.com/181506385000202.png?r1024x1024'
           }
           return(

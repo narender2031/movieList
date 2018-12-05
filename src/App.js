@@ -15,7 +15,7 @@ class App extends Component {
     e.preventDefault();
     const movie_name = e.target.movie.value
     const next_page = 1
-    const api_call = await fetch(`http://www.omdbapi.com/?s=${movie_name}&page=${next_page}&apikey=${API_KEY}`)
+    const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${movie_name}&page=${next_page}&apikey=${API_KEY}`)
     const data =  await api_call.json();
     this.setState({
       movies: data.Search || [],
@@ -42,10 +42,9 @@ class App extends Component {
 
   handlePageClick = async (data) => {
     console.log(data.selected)
-    const json  = localStorage.getItem("movie_name")
     const movie_name = localStorage.getItem("movie_name")
     const next_page = data.selected
-    const api_call = await fetch(`http://www.omdbapi.com/?s=${movie_name}&page=${next_page}&apikey=${API_KEY}`)
+    const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?s=${movie_name}&page=${next_page}&apikey=${API_KEY}`)
     const result =  await api_call.json();
     this.setState({
       movies: result.Search || [],
